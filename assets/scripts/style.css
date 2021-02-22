@@ -32,8 +32,8 @@ h1 {
     padding: 1rem 3rem 1rem 3rem;
 }
 
-.grid-item-2 {
-}
+/* .grid-item-2 {
+} */
 
 .grid-item-4, .grid-item-6 {
     max-width: 50%;
@@ -74,10 +74,10 @@ h1 {
 }
 footer {
     display: block;
-    background-color: green;
+    /* background-color: green; */
     color: cornsilk;
     font-family: cursive;
-    background-image: ;
+    background-image: url(../images/matrix.gif);
 }
 
 h4 {
