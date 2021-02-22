@@ -76,10 +76,10 @@ footer {
     display: block;
     /* background-color: green; */
     color: cornsilk;
-    font-family: cursive;
     background-image: url(../images/matrix.gif);
 }
 
-h4 {
-    background-color: green;
+h2 {
+    font-family: monospace;
+    font-size: 18px;
 }
