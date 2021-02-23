@@ -1,5 +1,5 @@
 :root {   
-    background-color: tan;
+    background-color: #282828;
 }
 
 * {
@@ -7,25 +7,57 @@
     justify-content: center;
     font-family: 'Righteous', cursive;
     text-align: center;
+    background-color: #282828;
+}
+
+body {
+    justify-content: center;
+    font-family: 'Righteous', cursive;
+    text-align: center;
+    background-color: (#282828);
+}
+
+a {
+    background-color: black;
+    font-size: 3rem;
+    color: wheat;
+}
+
+a:hover {
+    color: blue;
+    box-shadow: 0 0.4rem 1.4rem 0 rgba(8, 114, 244, 0.6);
+    transition: transform 150ms;
+    transform: scale(1.03);
 }
 .grid-container {
     display: grid;
-    grid-template-columns: 1fr 3fr 1fr;
-    grid-template-rows: 2fr 6fr; 
+    grid-template-columns: 1fr 2fr 1fr;
+    grid-template-rows: .5fr 2fr; 
 }
 
 .high-score {
-    border: 2px solid black;
+    border: 2px solid darkgray;
+    border-radius: 2rem;
     margin: 2rem;
     padding: 2rem;
     background-color: black;
     color: wheat;
     font-weight: bolder;
     align-self: center;
-    font-size: 3rem;
+
 }
 h1 {
-    font-size: 6rem;
+    font-size: 4rem;
+}
+
+h2 {
+    background-color: black;
+    font-size: 3rem;
+}
+
+h3 {
+    font-size: 2.5rem;
+    background-color: cornsilk;
 }
 
 .grid-item-2 {
@@ -38,18 +70,20 @@ h1 {
 }
 
 .score-timer {
-    border: 2px solid green;
+    border: 2px solid darkgray;
+    border-radius: 2rem;
     margin: 2rem;
     padding: 2rem;
     background-color: black;
     color: wheat;
     font-weight: bolder;
     align-self: center;
-    font-size: 3rem;
+
 }
 
 #score {
     background-color: black;
+    font-size: 3rem;
 }
 
 #timer {
@@ -60,7 +94,6 @@ h1 {
     justify-items: center;
     margin-top: auto;
     margin-bottom: auto;
-    
 }
 
 .quiz-card {
@@ -70,7 +103,7 @@ h1 {
     padding: 1rem 1rem 1rem 1rem;
     background-color: cornsilk;
     align-self: center;
-    height: 25em;
+    height: 15em;
     font-size: 2.5rem;
     
 }
@@ -87,6 +120,15 @@ h1 {
     
 }
 
+.scores-card {
+    background-color: cornsilk;
+    border: 2px solid darkgray;
+    border-radius: 2rem;
+    width: 50rem;
+    height: 70rem;
+    align-items: center;
+    justify-self: center;
+}
 .button {
     background-color: lightblue;
     font-weight: bolder;
@@ -98,6 +140,7 @@ h1 {
 .fa-chess-queen {
     font-size: 3.5rem;
     margin-left: 1rem;;
+    background-color: lightblue;
 }
 
 .button:hover {
@@ -109,14 +152,11 @@ h1 {
 
 .footer {
     color: cornsilk;
-    padding: 3rem;
-    margin-left: 0;
+    padding: 3rem 0rem;
     background-image: url(../images/matrix.gif);
-    /* background-color: rgb(63, 61, 61); */
-    width: 100%;
-}
-
-h2 {
+    background-size: auto;
     font-family: monospace;
     font-size: 3rem;
+    background-color: none;
 }
+
