@@ -17,22 +17,27 @@
         </div>
         <h1 class="grid-item-2">Test your Javascript knowledge here!</h1>
 
-        <div class="score-timer grid-item-3">
-            <div id="score">
-                <h2>user score will go here</h2>
-            </div>
+        <div class="timer grid-item-3">
             <div id="timer">
-                <h2>timer will go here</h2>
+                <h2>Timer: <span id="timer"></span></h2>
             </div>
         </div>
         <div class="grid-item-4">
             <img src="./assets/images/js-gif.gif" alt="Javascript scroll">
         </div>
         <div class="quiz-card grid-item-5">
-            <h3>Are you ready to play? Click Start, and lets get going!</h3>
+            <h3>Let's play!</h3>
             <div class="quiz-item">
-                    quiz-item box blank text for the moment
-            <button class="button start-submit" data-state="inactive">Start<i class="fas fa-chess-queen"></i></button>
+                <p id="question">question area - blank text for the moment</p>
+                    <div class="buttons">
+                        <button class="choice-button button" id="btn0"><span id="choice0"></span></button>
+                        <button class="choice-button button" id="btn1"><span id="choice1"></span></button>
+                        <button class="choice-button button" id="btn2"><span id="choice2"></span></button>
+                        <button class="choice-button button" id="btn3"><span id="choice3"></span></button>
+                    </div>
+
+                    
+            <button class="button start-button" id="startButton" data-state="inactive">Start<i class="fas fa-chess-queen"></i></button>
             </div>
         </div>
         <div class="grid-item-6">

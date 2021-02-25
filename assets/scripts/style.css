@@ -69,7 +69,7 @@ h3 {
     justify-self: center;
 }
 
-.score-timer {
+.timer {
     border: 2px solid darkgray;
     border-radius: 2rem;
     margin: 2rem;
@@ -120,6 +120,10 @@ h3 {
     
 }
 
+p {
+    background-color: darkgray;
+    
+}
 .scores-card {
     background-color: cornsilk;
     border: 2px solid darkgray;
@@ -129,12 +133,17 @@ h3 {
     align-items: center;
     justify-self: center;
 }
+
 .button {
     background-color: lightblue;
     font-weight: bolder;
     padding: 10px 15px;
     border-radius: 8px;
     font-size: 3rem;
+}
+
+.start-button {
+    margin-top: 50px;
 }
 
 .fa-chess-queen {
