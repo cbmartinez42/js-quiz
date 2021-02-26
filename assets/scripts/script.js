@@ -4,11 +4,22 @@ let questionContainerElement = document.getElementById('question-container');
 const questionElement = document.getElementById('question');
 const answerButtonsElement = document.getElementById('answerButtons');
 let shuffledQuestions, currentQuestionIndex
-
-
-
+let timer = 60;
+const timerElement = document.getElementById('timer')
+let clock = null
+let isCompleted = false
 
 function startGame(){
+    // Sets timer
+    clock = setInterval(function() {
+      timer--;
+      timerElement.innerText = timer
+      if (timer === 0) {
+        // Clears interval and displays score?
+        clearInterval(clock);
+      }
+    }, 1000)
+
   startButton.classList.add('hide')
   shuffledQuestions = questions.sort(() => Math.random() - .5)
   currentQuestionIndex = 0
@@ -29,16 +40,22 @@ function showQuestion(question) {
     button.classList.add('answer-buttons')
     if (answer.correct) {
       button.dataset.correct = answer.correct
-    }
+    } 
     button.addEventListener('click', selectAnswer)
     answerButtonsElement.appendChild(button)
   })
 }
 
 function resetState() {
-  while (answerButtonsElement.firstChild) {
-    answerButtonsElement.removeChild(answerButtonsElement.firstChild)
+  const children = Array.from(answerButtonsElement.children)
+  console.log(children)
+  for (const child of children) {
+    console.log(child)
+    answerButtonsElement.removeChild(child)
   }
+  // while (answerButtonsElement.firstChild) {
+  //   answerButtonsElement.removeChild(answerButtonsElement.firstChild)
+  // }
 }
 
 function selectAnswer(e) {
@@ -48,6 +65,11 @@ function selectAnswer(e) {
   Array.from(answerButtonsElement.children).forEach(button => {
     setStatusClass(button, button.dataset.correct)
   })
+  // setTimeout(() => {
+    
+  //   }, 3000)
+    currentQuestionIndex++
+    setNextQuestion
 }
 
 function setStatusClass(element, correct) {
@@ -101,8 +123,16 @@ const questions = [
       { text: "When too much memory is used on the call stack", correct: true}
     ]
   },
- ] 
-
+  {
+    question: "What is a 'callback function'?", 
+    answers: [
+      { text: "When you remember a function that you forgot to add to your code", correct: false}, 
+      { text: "Something to be avoided in the bathroom", correct: false}, 
+      { text: "An action taken by a Pokemon when played", correct: false},
+      { text: "A function passed into another function as an argument to be executed later", correct: true}
+    ]
+  }
+] 
 
 
 // new question("What is a 'callback function'?", ["When you remember a function that you forgot to add to your code", "Something to be avoided in the bathroom", "An action taken by a Pokemon when played", "A function passed into another function as an argument to be executed later"], "A function passed into another function as an argument to be executed later"),

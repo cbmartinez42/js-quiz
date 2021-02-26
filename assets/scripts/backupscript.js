@@ -37,8 +37,8 @@ for(let i = 0, )
 // timer
 function startTimer() {
     // Sets timer
-    timer = setInterval(function() {
-      index--;
+    setInterval(function() {
+      timer--;
       timerElement.textContent = timer;
       if (timer >= 0) {
         // Tests if win condition is met
