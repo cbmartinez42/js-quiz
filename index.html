@@ -15,38 +15,38 @@
         <div class="high-score grid-item-1" id="gridHighScore"> 
             <h2><a href="./high-scores.html">High Scores</a></h2>
         </div>
-        <h1 class="grid-item-2">Test your Javascript knowledge here!</h1>
 
-        <div class="timer grid-item-3">
-            <div id="timer">
-                <h2>Timer: <span id="timer"></span></h2>
-            </div>
+        <h1 class="header grid-item-2">Test your Javascript knowledge here!</h1>
+
+        <div class="timer-div grid-item-3">
+            <h2 id="timerField">Timer: <span id="timer"></span></h2>
         </div>
+
         <div class="grid-item-4">
             <img src="./assets/images/js-gif.gif" alt="Javascript scroll">
         </div>
-        <div class="quiz-card grid-item-5">
-            <h3>Let's play!</h3>
-            <div class="quiz-item">
-                <p id="question">question area - blank text for the moment</p>
-                    <div class="buttons">
-                        <button class="choice-button button" id="btn0"><span id="choice0"></span></button>
-                        <button class="choice-button button" id="btn1"><span id="choice1"></span></button>
-                        <button class="choice-button button" id="btn2"><span id="choice2"></span></button>
-                        <button class="choice-button button" id="btn3"><span id="choice3"></span></button>
-                    </div>
 
-                    
-            <button class="button start-button" id="startButton" data-state="inactive">Start<i class="fas fa-chess-queen"></i></button>
+        <div class="quiz-card grid-item-5">
+            <div class="quiz-container" id="question-container">
+                <div id="question">Let's play!</div>
+                    <div class="answer-buttons hide" id="answerButtons">
+                        <button class="choice-button" id="btn0"><span id="choice0">Answer 1</span></button>
+                        <button class="choice-button" id="btn1"><span id="choice1">Answer 2</span></button>
+                        <button class="choice-button" id="btn2"><span id="choice2">Answer 3</span></button>
+                        <button class="choice-button" id="btn3"><span id="choice3">Answer 4</span></button>
+                    </div>
+ 
+            <button class="button start-button show" id="startButton">Start<i class="fas fa-chess-queen"></i></button>
             </div>
         </div>
+
         <div class="grid-item-6">
             <img src="./assets/images/js-gif.gif" alt="Javascript scroll">
         </div>
-
     </div>
     <script src="./assets/scripts/script.js"></script>
 </body>
+
 <div class="footer">
     Developed by Chris Martinez
 </div>

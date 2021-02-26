@@ -15,6 +15,8 @@ body {
     font-family: 'Righteous', cursive;
     text-align: center;
     background-color: (#282828);
+    padding: 0;
+    margin: 0;
 }
 
 a {
@@ -57,19 +59,19 @@ h2 {
 
 h3 {
     font-size: 2.5rem;
-    background-color: cornsilk;
+    background-color: darkgrey;
 }
 
 .grid-item-2 {
     border: 2px solid rgb(104, 107, 110);
     border-radius: 1rem;
     margin: 3rem;
-    padding: 4.5rem 3rem 1rem 3rem;
+    padding: 2.5rem 3rem 1rem 3rem;
     background-color: grey;
     justify-self: center;
 }
 
-.timer {
+.timer-div {
     border: 2px solid darkgray;
     border-radius: 2rem;
     margin: 2rem;
@@ -108,7 +110,7 @@ h3 {
     
 }
 
-.quiz-item {
+.quiz-container {
     margin: 0 auto;
     padding: 3rem;
     background-color: darkgrey;
@@ -117,12 +119,30 @@ h3 {
     align-items: center;
     max-width: 75%;
     align-self: center;
-    
 }
 
-p {
-    background-color: darkgray;
-    
+.answer-buttons {
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    gap: 10px;
+    margin: 20px 0;
+    background-color: lightblue;
+    font-weight: bolder;
+    padding: 10px 15px;
+    border-radius: 8px;
+    font-size: 1.5rem;
+}
+
+.answer-buttons:hover {
+    cursor: pointer;
+    box-shadow: 0 0.4rem 1.4rem 0 rgba(8, 114, 244, 0.6);
+    transition: transform 150ms;
+    transform: scale(1.03);
+}
+
+#question {
+    font-size: 2.5rem;
+    background-color: darkgrey;
 }
 .scores-card {
     background-color: cornsilk;
@@ -140,6 +160,22 @@ p {
     padding: 10px 15px;
     border-radius: 8px;
     font-size: 3rem;
+}
+
+.choice-button {
+    background-color: lightblue;
+    font-weight: bolder;
+    padding: 10px 15px;
+    border-radius: 8px;
+    font-size: 3rem;
+}
+
+.button-correct {
+    background-color: green;
+}
+
+.button-wrong {
+    background-color: red;
 }
 
 .start-button {
@@ -166,6 +202,12 @@ p {
     background-size: auto;
     font-family: monospace;
     font-size: 3rem;
-    background-color: none;
 }
 
+.hide {
+    display: none;
+}
+
+/* .show {
+    display: none;
+} */

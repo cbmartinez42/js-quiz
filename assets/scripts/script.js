@@ -1,76 +1,108 @@
-//  declare variables
-let win = []; 
-let lose = [];
-// let timerCount = timer;
-let startButton = document.querySelector(".start-button");
-let rightAnswer = 0;
-let wrongAnswer = 0;
-let timer = "--";
-let correctAnswer = "";
-
-// quiz pool of questions
-const quizQuestions = [
-    new question("What is a function?", ["A job you must go to every day", "A block of code designed to perform a particular task", "Something done in the bathroom","A rare breed of dog"], "A block of code designed to perform a particular task"),
-    new question("Where is JavaScript run?", ["On your desktop","In the bathroom", "In a web browser", "On a football field"], "In a web browser"),
-    new question("What part of a web browser can you use to view messages in JavaScript for troubleshooting purposes?", ["The room of baths", "The settings menu", "The console", "The Magic 8 Ball"], "The console"),
-    new question("What is referred to as a 'stack overflow'?", ["A large helping of pancakes", "When JavaScript goes to the bathroom", "A type of cheese found only in Wisconsin", "When too much memory is used on the call stack"], "When too much memory is used on the call stack"),
-    new question("What is a 'callback function'?", ["When you remember a function that you forgot to add to your code", "Something to be avoided in the bathroom", "An action taken by a Pokemon when played", "A function passed into another function as an argument to be executed later"], "A function passed into another function as an argument to be executed later"),
-    ]
-
-// init
-function init(){
-    getTimer()
-}
+let startButton = document.getElementById("startButton");
+startButton.addEventListener('click', startGame)
+let questionContainerElement = document.getElementById('question-container');
+const questionElement = document.getElementById('question');
+const answerButtonsElement = document.getElementById('answerButtons');
+let shuffledQuestions, currentQuestionIndex
 
 
-// current score box
+
 
 function startGame(){
-    timerCount = 60;
+  startButton.classList.add('hide')
+  shuffledQuestions = questions.sort(() => Math.random() - .5)
+  currentQuestionIndex = 0
+  answerButtonsElement.classList.remove('hide')
+  setNextQuestion()
 }
 
-// timer
-function startTimer() {
-    // Sets timer
-    timer = setInterval(function() {
-      index--;
-      timerElement.textContent = timer;
-      if (timer >= 0) {
-        // Tests if win condition is met
-        if (isWin && timer >= 0) {
-          // Clears interval and stops timer
-          clearInterval(timer);
-          endGame();
-        }
-      }
-      // Tests if time has run out
-      if (timer === 0) {
-        // Clears interval and displays score?
-        clearInterval(timer);
-        displayScore();
-      }
-    }, 1000);
-    console.log(timer)
+function setNextQuestion() {
+  resetState()
+  showQuestion(shuffledQuestions[currentQuestionIndex])
+}
+
+function showQuestion(question) {
+  questionElement.innerText = question.question
+  question.answers.forEach(answer => {
+    const button = document.createElement('button')
+    button.innerText = answer.text
+    button.classList.add('answer-buttons')
+    if (answer.correct) {
+      button.dataset.correct = answer.correct
+    }
+    button.addEventListener('click', selectAnswer)
+    answerButtonsElement.appendChild(button)
+  })
+}
+
+function resetState() {
+  while (answerButtonsElement.firstChild) {
+    answerButtonsElement.removeChild(answerButtonsElement.firstChild)
   }
-// high score box
-
-function highScores() {
-
 }
 
-
-// keep running tally to refer to the current score box
-
-
-
-// save score server-side so that it can be added to high score box if necessary
-
-// display score at the end
-function endGame() {
-
+function selectAnswer(e) {
+  const selectedButton = e.target
+  const correct = selectedButton.dataset.correct
+  setStatusClass(document.body,correct)
+  Array.from(answerButtonsElement.children).forEach(button => {
+    setStatusClass(button, button.dataset.correct)
+  })
 }
 
+function setStatusClass(element, correct) {
+  clearStatusClass(element)
+  if (correct) {
+    element.classList.add('button-correct')
+  } else {
+    element.classList.add('button-wrong')
+  }
+}
 
-// start/submit button for quiz. data-states will be active/inactive
-startButton.addEventListener("click", startGame);
-// inactive state will be start/active state will be quit or submit
+function clearStatusClass(element) {
+  element.classList.remove('button-correct')
+  element.classList.remove('button-wrong')
+}
+
+const questions = [
+  {
+    question: 'What is a function?', 
+    answers: [
+      { text: "A job you must go to every day", correct: false}, 
+      { text: "A block of code designed to perform a particular task", correct: true}, 
+      { text: "Something done in the bathroom", correct: false},
+      { text: "A rare breed of dog", correct: false}
+    ]
+  },
+  {
+    question: 'Where is JavaScript run?', 
+    answers: [
+      { text: "On your desktop", correct: false}, 
+      { text: "In the bathroom", correct: false}, 
+      { text: "In a web browser", correct: true},
+      { text: "On a football field", correct: false}
+    ]
+  },
+  {
+    question: 'What part of a web browser can you use to view messages in JavaScript for troubleshooting purposes?', 
+    answers: [
+      { text: "The room of baths", correct: false}, 
+      { text: "The settings menu", correct: false}, 
+      { text: "The console", correct: true},
+      { text: "The Magic 8 Ball", correct: false}
+    ]
+  },
+  {
+    question: "What is referred to as a 'stack overflow'?", 
+    answers: [
+      { text: "A large helping of pancakes", correct: false}, 
+      { text: "When JavaScript goes to the bathroom", correct: false}, 
+      { text: "A type of cheese found only in Wisconsin", correct: false},
+      { text: "When too much memory is used on the call stack", correct: true}
+    ]
+  },
+ ] 
+
+
+
+// new question("What is a 'callback function'?", ["When you remember a function that you forgot to add to your code", "Something to be avoided in the bathroom", "An action taken by a Pokemon when played", "A function passed into another function as an argument to be executed later"], "A function passed into another function as an argument to be executed later"),
