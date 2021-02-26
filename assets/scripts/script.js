@@ -65,11 +65,15 @@ function selectAnswer(e) {
   Array.from(answerButtonsElement.children).forEach(button => {
     setStatusClass(button, button.dataset.correct)
   })
+  if (shuffledQuestions.length > currentQuestionIndex + 1){
   // setTimeout(() => {
     
   //   }, 3000)
     currentQuestionIndex++
-    setNextQuestion
+    setNextQuestion()
+  } else {
+    window.location.pathname = '/high-scores.html'
+  }
 }
 
 function setStatusClass(element, correct) {

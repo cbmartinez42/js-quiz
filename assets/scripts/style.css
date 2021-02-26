@@ -172,6 +172,7 @@ h3 {
 
 .button-correct {
     background-color: green;
+    /* color: white; */
 }
 
 .button-wrong {
