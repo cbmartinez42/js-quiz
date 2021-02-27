@@ -7,7 +7,11 @@ let shuffledQuestions, currentQuestionIndex
 let timer = 60;
 const timerElement = document.getElementById('timer')
 let clock = null
-let isCompleted = false
+let answerTimeout;
+let quizScore = timer;
+let userScore = null;
+
+
 
 function startGame(){
     // Sets timer
@@ -15,7 +19,7 @@ function startGame(){
       timer--;
       timerElement.innerText = timer
       if (timer === 0) {
-        // Clears interval and displays score?
+        // Clears interval 
         clearInterval(clock);
       }
     }, 1000)
@@ -48,9 +52,7 @@ function showQuestion(question) {
 
 function resetState() {
   const children = Array.from(answerButtonsElement.children)
-  console.log(children)
   for (const child of children) {
-    console.log(child)
     answerButtonsElement.removeChild(child)
   }
   // while (answerButtonsElement.firstChild) {
@@ -59,9 +61,10 @@ function resetState() {
 }
 
 function selectAnswer(e) {
+  // setTimeout(selectAnswer, answerTimeout, 2000);
   const selectedButton = e.target
   const correct = selectedButton.dataset.correct
-  setStatusClass(document.body,correct)
+  // setStatusClass(document.body,correct)
   Array.from(answerButtonsElement.children).forEach(button => {
     setStatusClass(button, button.dataset.correct)
   })
@@ -72,7 +75,8 @@ function selectAnswer(e) {
     currentQuestionIndex++
     setNextQuestion()
   } else {
-    window.location.pathname = '/high-scores.html'
+
+    window.location.href = './high-scores.html'
   }
 }
 
@@ -82,6 +86,14 @@ function setStatusClass(element, correct) {
     element.classList.add('button-correct')
   } else {
     element.classList.add('button-wrong')
+    // add penalty
+    if (timer >= 10) {
+      timer = timer -3;
+    } else {
+      timer = 1
+      localStorage.setItem(userScore, quizScore)
+      window.location.href = './high-scores.html'
+    }
   }
 }
 
