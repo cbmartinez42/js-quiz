@@ -1,10 +1,13 @@
-let restartBtn = document.getElementById('restart-btn')
-let resetBtn = document.getElementById('reset-btn')
-let scoresList = document.getElementById('scores-list')
+let restartBtn = document.getElementById('restart-btn');
+let resetBtn = document.getElementById('reset-btn');
+let scoresList = document.getElementById('high-scores');
 // let scoresArray = localStorage.getItem("scores");
 // let scoresArray = [];
-let scores = localStorage.getItem("scores");
-let scoresArray = JSON.parse(scores);
+// let scores = localStorage.getItem("scores");
+let scoresArray = JSON.parse(localStorage.getItem("scores")) || [];
+const MAX_HIGH_SCORES = 5;
+let list = document.createElement('ol');
+let item = document.createElement ('li');
 // set event listeners
 
 resetBtn.addEventListener('click', resetScores)
@@ -12,15 +15,23 @@ restartBtn.addEventListener('click', restartQuiz)
 
 // get user score(timer) from quiz
 function init(){
-    // scoresArray = localStorage.getItem("scores")
-    // let scoresArray = JSON.parse(scores)
     console.log(scoresArray)
-    console.log(scoresArray.length)
 
+    // sort high scores and limit to 5
+    // scoresArray.push(userScore);
+    saveHighScore = e => {
+        scoresArray.sort((a,b) => b.userScore - a.userScore);
+        scoresArray.splice(5);
+    }
+    console.log(scoresArray)
+
+
+    // populate list from scores
     function makeOL(array) {
-        let list = document.createElement('ol');
+
+        scoresList.appendChild(list)
+
         for (var i = 0; i < scoresArray.length; i++) {
-            let item = document.createElement ('li');
 
             item.appendChild(document.createTextNode(array[i]));
 
@@ -28,14 +39,9 @@ function init(){
         }
         scoresList.innerText = (list.userInitials + ": " + list.userScore)
         return list;
-        
-    }
-
-    // scoresList.innerText = (list.userInitials + ": " + list.userScore)
+            }
+    // scoresList.innerHTML = (list.userInitials + ": " + list.userScore)
 }
-
-
-
 
 init()
 // scoresList.innerText = scoresArray.userInitials + ": " + scoresArray.userScore;

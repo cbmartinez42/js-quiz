@@ -1,19 +1,19 @@
 let startButton = document.getElementById("startButton");
-startButton.addEventListener('click', startGame)
+startButton.addEventListener('click', startGame);
 let questionContainerElement = document.getElementById('question-container');
 const questionElement = document.getElementById('question');
 const answerButtonsElement = document.getElementById('answerButtons');
 let shuffledQuestions, currentQuestionIndex
 let timer = 60;
-const timerElement = document.getElementById('timer')
-let clock = null
+const timerElement = document.getElementById('timer');
+let clock = null;
 let answerTimeout;
 let quizScore = timer;
 let userScore = document.getElementById('user-score');
-let userInitials = document.getElementById('initials')
-let saveBtn = document.getElementById('save-btn')
-saveBtn.addEventListener('click', saveInitials)
-let scoresCard = document.getElementById('scores')
+let userInitials = document.getElementById('initials');
+let saveBtn = document.getElementById('save-btn');
+saveBtn.addEventListener('click', saveInitials);
+let scoresCard = document.getElementById('scores');
 
 
 
