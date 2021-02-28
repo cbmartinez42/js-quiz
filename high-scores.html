@@ -11,22 +11,21 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css" integrity="sha384-vSIIfh2YWi9wW0r9iZe7RJPrKwp6bG+s9QZMoITbCckVJqGCCRhc+ccxNcdpHuYu" crossorigin="anonymous">
 </head>
 <body>
-    <div class="container">
+    <div class="scores-container">
         <div class="scores-card">
-            <div>
-                <h3>Your Score: <span id="user-score"></span></h3>
-            </div>
-            <div>
-            <h3>Your initials: <span><input id="initials" type="text"></span></h3>
-            </div>
-            <div class="buttons"></div>
-            <button class="button" id="save-btn">Save</button>
-            <button class="button" id="reset-btn">Reset</button>
-            <button class="button" id="restart-btn">Play again</button>
-            <br><br>
-            <h3>Scores go here</h3>
-        </div>
 
+            <h3>High Scores</h3>
+            <div>
+                <button class="button" id="reset-btn">Reset</button>
+                <button class="button" id="restart-btn">Restart Quiz</button>
+            </div>
+            <div class="high-scores">
+                <ol>
+                    <span  class="scores-list"></span>
+
+                </ol>
+            </div>
+        </div>
     </div>
     <script src="./assets/javascript/high-scores.js"></script>
 </body>

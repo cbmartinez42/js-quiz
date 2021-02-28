@@ -9,7 +9,12 @@ const timerElement = document.getElementById('timer')
 let clock = null
 let answerTimeout;
 let quizScore = timer;
-let userScore = null;
+let userScore = document.getElementById('user-score');
+let userInitials = document.getElementById('initials')
+let saveBtn = document.getElementById('save-btn')
+saveBtn.addEventListener('click', saveInitials)
+let scoresCard = document.getElementById('scores')
+
 
 
 
@@ -68,16 +73,40 @@ function selectAnswer(e) {
   Array.from(answerButtonsElement.children).forEach(button => {
     setStatusClass(button, button.dataset.correct)
   })
+
+  setTimeout (() => {
+    console.log(timer)
+  
   if (shuffledQuestions.length > currentQuestionIndex + 1){
+    if (!selectedButton.dataset.correct){
+      console.log("wrong")
+      timer = timer - 10;
+
+      if (timer <=0) {
+        timer - 1
+        scoresCard.classList.remove('hide')
+        clearInterval(clock);
+        userScore.innerText = timer
+        questionContainerElement.classList.add('hide')
+        // localStorage.setItem(userScore, quizScore)
+
+        // window.location.href = './high-scores.html'
+      }
+    }
   // setTimeout(() => {
     
   //   }, 3000)
+
     currentQuestionIndex++
     setNextQuestion()
   } else {
-
-    window.location.href = './high-scores.html'
-  }
+    scoresCard.classList.remove('hide')
+    clearInterval(clock);
+    userScore.innerText = timer
+    questionContainerElement.classList.add('hide')
+      // window.location.href = './high-scores.html'
+    }
+  }, 1000)
 }
 
 function setStatusClass(element, correct) {
@@ -86,20 +115,33 @@ function setStatusClass(element, correct) {
     element.classList.add('button-correct')
   } else {
     element.classList.add('button-wrong')
-    // add penalty
-    if (timer >= 10) {
-      timer = timer -3;
-    } else {
-      timer = 1
-      localStorage.setItem(userScore, quizScore)
-      window.location.href = './high-scores.html'
-    }
+    // // add penalty
+    // if (timer >= 10) {
+    //   timer = timer -3;
+    // } else {
+    //   timer = 1
+    //   localStorage.setItem(userScore, quizScore)
+    //   window.location.href = './high-scores.html'
+    // }
   }
 }
 
 function clearStatusClass(element) {
   element.classList.remove('button-correct')
   element.classList.remove('button-wrong')
+}
+
+// function to save initials
+function saveInitials(event) {
+  let scoresArray = [] 
+  let scores = {userInitials: userInitials.value, userScore: timer}
+  let currentScores = localStorage.getItem("scores")
+  if (!!currentScores) {
+    scoresArray = JSON.parse(currentScores)
+  } 
+    scoresArray.push(scores);
+    localStorage.setItem("scores", JSON.stringify(scoresArray))
+    window.location.href = './high-scores.html'
 }
 
 const questions = [
