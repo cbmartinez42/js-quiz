@@ -16,8 +16,6 @@ saveBtn.addEventListener('click', saveInitials);
 let scoresCard = document.getElementById('scores');
 
 
-
-
 function startGame(){
     // Sets timer
     clock = setInterval(function() {
@@ -29,6 +27,7 @@ function startGame(){
       }
     }, 1000)
 
+    // hide start button after game begins, sort questions randomly and begin to show questions
   startButton.classList.add('hide')
   shuffledQuestions = questions.sort(() => Math.random() - .5)
   currentQuestionIndex = 0
@@ -60,16 +59,11 @@ function resetState() {
   for (const child of children) {
     answerButtonsElement.removeChild(child)
   }
-  // while (answerButtonsElement.firstChild) {
-  //   answerButtonsElement.removeChild(answerButtonsElement.firstChild)
-  // }
 }
 
 function selectAnswer(e) {
-  // setTimeout(selectAnswer, answerTimeout, 2000);
   const selectedButton = e.target
   const correct = selectedButton.dataset.correct
-  // setStatusClass(document.body,correct)
   Array.from(answerButtonsElement.children).forEach(button => {
     setStatusClass(button, button.dataset.correct)
   })
@@ -88,14 +82,9 @@ function selectAnswer(e) {
         clearInterval(clock);
         userScore.innerText = timer
         questionContainerElement.classList.add('hide')
-        // localStorage.setItem(userScore, quizScore)
 
-        // window.location.href = './high-scores.html'
       }
     }
-  // setTimeout(() => {
-    
-  //   }, 3000)
 
     currentQuestionIndex++
     setNextQuestion()
@@ -104,7 +93,6 @@ function selectAnswer(e) {
     clearInterval(clock);
     userScore.innerText = timer
     questionContainerElement.classList.add('hide')
-      // window.location.href = './high-scores.html'
     }
   }, 1000)
 }
@@ -115,14 +103,6 @@ function setStatusClass(element, correct) {
     element.classList.add('button-correct')
   } else {
     element.classList.add('button-wrong')
-    // // add penalty
-    // if (timer >= 10) {
-    //   timer = timer -3;
-    // } else {
-    //   timer = 1
-    //   localStorage.setItem(userScore, quizScore)
-    //   window.location.href = './high-scores.html'
-    // }
   }
 }
 
