@@ -21,7 +21,7 @@ body {
 
 a {
     background-color: black;
-    font-size: 3rem;
+    /* font-size: 2.5rem; */
     color: wheat;
 }
 
@@ -33,7 +33,7 @@ a:hover {
 }
 .grid-container {
     display: grid;
-    grid-template-columns: 1fr 2fr 1fr;
+    grid-template-columns: .75fr 1fr .75fr;
     grid-template-rows: .5fr 2fr; 
 }
 
@@ -46,14 +46,16 @@ a:hover {
     color: wheat;
     font-weight: bolder;
     align-self: center;
+    width: 30rem;
+    justify-self: center;
 
 }
 h1 {
-    font-size: 4rem;
+    font-size: 3.5rem;
 }
 
 h2 {
-    font-size: 3rem;
+    font-size: 2.5rem;
 }
 
 h3 {
@@ -78,7 +80,8 @@ h3 {
     color: wheat;
     font-weight: bolder;
     align-self: center;
-
+    justify-self: center;
+    width: 30rem;
 }
 
 #score {
@@ -92,38 +95,41 @@ h3 {
 .grid-item-4, .grid-item-6 {
     max-width: auto;
     justify-items: center;
-    margin-top: auto;
-    margin-bottom: auto;
+    /* margin-top: auto;
+    margin-bottom: auto; */
+    margin: auto;
 }
 
 .quiz-card {
     border: 2px solid black;
     border-radius: 2rem;
-    margin: 50px;
+    margin: 1rem;
     padding: 1rem 1rem 1rem 1rem;
     background-color: cornsilk;
     align-self: center;
     height: 15em;
     font-size: 2.5rem;
+    justify-items: center;
     
 }
 
 .quiz-container {
-    margin: 0 auto;
+    margin: 1.5rem auto;
     padding: 3rem;
     background-color: darkgrey;
     font-size: 2.5rem;
-    justify-content: end;
     align-items: center;
-    max-width: 75%;
+    max-width: 80%;
+    max-height: 75%;
     align-self: center;
+    border-radius: 2rem;
 }
 
 .answer-buttons {
     display: grid;
     grid-template-columns: repeat(2, auto);
     gap: 10px;
-    margin: 20px 0;
+    margin: 15px 0;
     background-color: lightblue;
     font-weight: bolder;
     padding: 10px 15px;
@@ -142,16 +148,37 @@ h3 {
     font-size: 2.5rem;
     background-color: darkgrey;
 }
+
+.scores-container {
+    display: flex;
+}
+
 .scores-card {
     background-color: cornsilk;
+    margin: 4rem;
+    padding: 2rem;
     border: 2px solid darkgray;
     border-radius: 2rem;
     width: 50rem;
-    height: 70rem;
-    align-items: center;
-    justify-self: center;
+    height: 25rem;
+    justify-content: center;
 }
 
+.high-scores-card {
+    background-color: cornsilk;
+    margin: 4rem;
+    padding: 2rem;
+    border: 2px solid darkgray;
+    border-radius: 2rem;
+    width: 50rem;
+    height: 60rem;
+    justify-content: center;
+}
+
+.scores-img {
+    max-width: 75%;
+    max-height: 75%;
+}
 .button {
     background-color: lightblue;
     font-weight: bolder;
@@ -199,6 +226,7 @@ h3 {
 .footer {
     color: cornsilk;
     padding: 3rem 0rem;
+    margin-top: 6rem;
     background-image: url(../images/matrix.gif);
     background-size: auto;
     font-family: monospace;
