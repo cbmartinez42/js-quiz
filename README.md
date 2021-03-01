@@ -10,7 +10,7 @@ Included in this application are:
     * Question items change color according to whether they are right or wrong so the user can see if they answered correctly
 
 Challenges I encountered
-* This project was a challenge in multiple areas. In order to overcome these challenges, I used several methods to achieve this working application:
+* This project was a challenge in multiple areas. In order to overcome these challenges, I used several methods to complete this working application:
     * I utilized multiple video tutorials from YouTube and Udemy, as well as other sites such as Stack Overflow, W3 Schools and MDN Web Docs
     * I took full advantage of my tutoring time, getting as far as I could on my own and having the areas where I needed assistance ready when my scheduled tutoring time approached
     * I took every opportunity during office hours, both before and after class, each day to ask questions, get feedback and listen and watch others' questions in order to further my knowledge

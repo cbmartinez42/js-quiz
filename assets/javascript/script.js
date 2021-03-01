@@ -1,5 +1,4 @@
 let startButton = document.getElementById("startButton");
-startButton.addEventListener('click', startGame);
 let questionContainerElement = document.getElementById('question-container');
 const questionElement = document.getElementById('question');
 const answerButtonsElement = document.getElementById('answerButtons');
@@ -12,9 +11,11 @@ let quizScore = timer;
 let userScore = document.getElementById('user-score');
 let userInitials = document.getElementById('initials');
 let saveBtn = document.getElementById('save-btn');
-saveBtn.addEventListener('click', saveInitials);
 let scoresCard = document.getElementById('scores');
 
+// event listeners for start and save buttons
+startButton.addEventListener('click', startGame);
+saveBtn.addEventListener('click', saveInitials);
 
 function startGame(){
     // Sets timer
@@ -22,7 +23,7 @@ function startGame(){
       timer--;
       timerElement.innerText = timer
       if (timer === 0) {
-        // Clears interval 
+        // Clears interval so timer doesn't keep running
         clearInterval(clock);
       }
     }, 1000)
@@ -35,6 +36,7 @@ function startGame(){
   setNextQuestion()
 }
 
+// cycle through questions
 function setNextQuestion() {
   resetState()
   showQuestion(shuffledQuestions[currentQuestionIndex])
@@ -54,6 +56,7 @@ function showQuestion(question) {
   })
 }
 
+// remove previous answer buttons 
 function resetState() {
   const children = Array.from(answerButtonsElement.children)
   for (const child of children) {
@@ -68,12 +71,10 @@ function selectAnswer(e) {
     setStatusClass(button, button.dataset.correct)
   })
 
+  // cycle through questions but delay showing them so user can see if they were right or wrong
   setTimeout (() => {
-    console.log(timer)
-  
-  if (shuffledQuestions.length > currentQuestionIndex + 1){
+    if (shuffledQuestions.length > currentQuestionIndex + 1){
     if (!selectedButton.dataset.correct){
-      console.log("wrong")
       timer = timer - 10;
 
       if (timer <=0) {
@@ -97,6 +98,7 @@ function selectAnswer(e) {
   }, 1000)
 }
 
+// set colors so user can see if they were right or wrong
 function setStatusClass(element, correct) {
   clearStatusClass(element)
   if (correct) {
@@ -106,6 +108,7 @@ function setStatusClass(element, correct) {
   }
 }
 
+// remove coloring for correct/incorrect answer buttons
 function clearStatusClass(element) {
   element.classList.remove('button-correct')
   element.classList.remove('button-wrong')
@@ -124,6 +127,7 @@ function saveInitials(event) {
     window.location.href = './high-scores.html'
 }
 
+// set questions
 const questions = [
   {
     question: 'What is a function?', 
@@ -172,5 +176,3 @@ const questions = [
   }
 ] 
 
-
-// new question("What is a 'callback function'?", ["When you remember a function that you forgot to add to your code", "Something to be avoided in the bathroom", "An action taken by a Pokemon when played", "A function passed into another function as an argument to be executed later"], "A function passed into another function as an argument to be executed later"),

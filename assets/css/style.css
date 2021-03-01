@@ -159,6 +159,7 @@ h3 {
     padding: 2rem;
     border: 2px solid darkgray;
     border-radius: 2rem;
+    box-shadow: 1em 1em 0.5em darkgrey;
     width: 50rem;
     height: 25rem;
     justify-content: center;
