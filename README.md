@@ -1,6 +1,6 @@
 # Description - JavaScript Quiz
 
-This is an original application with the intent of showcasing my work to prospective employers. Utilizing the knowledge gained in the first two weeks of class, researching online, getting feedback from classmates as well as my tutor, I was able to write this code from scratch. 
+This is an original application utilizing HTML, CSS and JavaScript to create a short, timed quiz on JavaScript basics. 
 
 
 Included in this application are:
@@ -10,18 +10,24 @@ Included in this application are:
     * Question items change color according to whether they are right or wrong so the user can see if they answered correctly
 
 Challenges I encountered
-* Due to the limited time to cover subjects in classes, I researched how to impliment flexboxes in order to further familiarize myself with manipulate the box model to be able to design the page the way I intended it to look
-    * Sizing of the individual flex items became an issue, in part due to cluttered code. As I familiarized myself and became more comfortable with flexbox attributes, I was able to reduce the clutter 
-    * Chrome Developer Tools were a very helpful resource, allowing me to play with different attributes and immediately see what impact my changes were having before adjusting my code
-* While we were provided the example application's code, I tried not to rely on it, as I wanted the portfolio to be my own work. 
-* When necessary, I utilized office hours, reached out to classmates, and sought the advice and expertise of my tutor
+* This project was a challenge in multiple areas. In order to overcome these challenges, I used several methods to achieve this working application:
+    * I utilized multiple video tutorials from YouTube and Udemy, as well as other sites such as Stack Overflow, W3 Schools and MDN Web Docs
+    * I took full advantage of my tutoring time, getting as far as I could on my own and having the areas where I needed assistance ready when my scheduled tutoring time approached
+    * I took every opportunity during office hours, both before and after class, each day to ask questions, get feedback and listen and watch others' questions in order to further my knowledge
 
 ## Credits
 Many thanks to the below individuals who provided input and suggestions
 * Mim Armand
 * Stephen Simone
 * Kat Poulos
-
+* Rubber duckies:
+    * Stacy Brown
+    * Samuel Roth
+    * Riheel Hamoande
+    * Katie Martinez
+    * And last, but not least - Grogu
+        
+    <img src="./assets/images/grogu.png">
 
 If any additional issues are found, or if there are any suggestions for improvement, please send an email to site developer Chris Martinez at cbmartinez42@gmail.com
 
@@ -45,7 +51,7 @@ If any additional issues are found, or if there are any suggestions for improvem
 3. After downloading, open the .zip file and select "Extract All" from the top of the window that appears
 4. Access the content with your code editor by selecting `File > Open Folder` in your code editor menu. If only viewing in a browser, simply double click index.html to open in your default browser
 
-[https://cbmartinez42.github.io/cbm-portfolio-1/](https://cbmartinez42.github.io/cbm-portfolio-1/)
+[https://cbmartinez42.github.io/js-quiz/](https://cbmartinez42.github.io/js-quiz/)
 
 ---
 
@@ -53,4 +59,4 @@ These updates are covered under [GNU General Public License v3.0](./COPYING.txt)
 
 ## Screenshot below:
 
-<img src="./assets/images/portfolio-1.PNG">
+<img src="./assets/images/js-quiz.gif">
