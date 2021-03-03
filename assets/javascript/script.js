@@ -12,6 +12,7 @@ let userScore = document.getElementById('user-score');
 let userInitials = document.getElementById('initials');
 let saveBtn = document.getElementById('save-btn');
 let scoresCard = document.getElementById('scores');
+let timerSectionElement = document.getElementById('timer-section')
 
 // event listeners for start and save buttons
 startButton.addEventListener('click', startGame);
@@ -25,6 +26,9 @@ function startGame(){
       if (timer === 0) {
         // Clears interval so timer doesn't keep running
         clearInterval(clock);
+        scoresCard.classList.remove('hide')
+        userScore.innerText = timer
+        questionContainerElement.classList.add('hide')
       }
     }, 1000)
 
@@ -69,33 +73,39 @@ function selectAnswer(e) {
   const correct = selectedButton.dataset.correct
   Array.from(answerButtonsElement.children).forEach(button => {
     setStatusClass(button, button.dataset.correct)
+
   })
 
   // cycle through questions but delay showing them so user can see if they were right or wrong
   setTimeout (() => {
     if (shuffledQuestions.length > currentQuestionIndex + 1){
-    if (!selectedButton.dataset.correct){
-      timer = timer - 10;
+      if (!selectedButton.dataset.correct){
+        timer = timer - 10;
 
-      if (timer <=0) {
-        timer - 1
-        scoresCard.classList.remove('hide')
-        clearInterval(clock);
-        userScore.innerText = timer
-        questionContainerElement.classList.add('hide')
 
-      }
-    }
+        if (timer <= 0) {
+          timer - 1
+          scoresCard.classList.remove('hide')
+          clearInterval(clock);
+          userScore.innerText = timer
+          questionContainerElement.classList.add('hide')
+        }
 
+      } 
+
+    timerSectionElement.classList.remove("wrong")
     currentQuestionIndex++
     setNextQuestion()
-  } else {
-    scoresCard.classList.remove('hide')
-    clearInterval(clock);
-    userScore.innerText = timer
-    questionContainerElement.classList.add('hide')
-    }
-  }, 1000)
+
+    } else {
+      scoresCard.classList.remove('hide')
+      clearInterval(clock);
+      userScore.innerText = timer
+      questionContainerElement.classList.add('hide')
+      }
+    }, 1000)
+    
+
 }
 
 // set colors so user can see if they were right or wrong
@@ -105,6 +115,7 @@ function setStatusClass(element, correct) {
     element.classList.add('button-correct')
   } else {
     element.classList.add('button-wrong')
+    timerSectionElement.classList.add("wrong")
   }
 }
 

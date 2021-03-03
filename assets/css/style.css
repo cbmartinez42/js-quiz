@@ -92,6 +92,10 @@ h3 {
 #timer {
     background-color: black;
 }
+
+.wrong {
+    color: red;
+}
 .grid-item-4, .grid-item-6 {
     max-width: auto;
     justify-items: center;
