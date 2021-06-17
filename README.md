@@ -2,6 +2,7 @@
 
 This is an original application utilizing HTML, CSS and JavaScript to create a short, timed quiz on JavaScript basics. 
 
+Deployed site: [https://cbmartinez42.github.io/js-quiz/](https://cbmartinez42.github.io/js-quiz/)
 
 Included in this application are:
 * Utilized CSS grid boxes to align objects within the quiz
@@ -51,7 +52,7 @@ If any additional issues are found, or if there are any suggestions for improvem
 3. After downloading, open the .zip file and select "Extract All" from the top of the window that appears
 4. Access the content with your code editor by selecting `File > Open Folder` in your code editor menu. If only viewing in a browser, simply double click index.html to open in your default browser
 
-[https://cbmartinez42.github.io/js-quiz/](https://cbmartinez42.github.io/js-quiz/)
+
 
 ---
 
